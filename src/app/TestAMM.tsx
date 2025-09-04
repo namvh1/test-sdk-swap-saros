@@ -1,7 +1,5 @@
 "use client";
-// import { LiquidityBookServices, MODE } from "@saros-finance/dlmm-sdk";
 import {
-  getSwapAmountSaros,
   getSwapExactOutSaros,
   swapSaros,
 } from "@saros-finance/sdk/src/swap";
@@ -28,7 +26,7 @@ const USDC_TOKEN = {
   name: "USD Coin",
   icon: "https://assets.coingecko.com/coins/images/6319/standard/usdc.png?1696506694",
   decimals: "6",
-  addressSPL: "DCeWKeJHgjSX6ceqtmrcNMAxiHVdXoWnSapf4YgoaR6s",
+  addressSPL: "HgMPoXcb4JftmTY1cxY63pZYtd17U2Hjz9YXFwc7g1rw",
 };
 
 const SAROS_TOKEN = {
@@ -38,7 +36,7 @@ const SAROS_TOKEN = {
   name: "SAROS",
   icon: "https://assets.coingecko.com/markets/images/861/large/saros.png?1754059184",
   decimals: "6",
-  addressSPL: "8UiwUadF2qxakeDZQNLjsQ4viy2FQdFJ4m5wsoNrNbMU",
+  addressSPL: "AwN2hehmH2qMqtzg3c5QzLX4cPG5iQzrB671EdeWo7uG",
 };
 
 const SLIPPAGE = 1;
@@ -63,7 +61,7 @@ const SAROS_SWAP_PROGRAM_ADDRESS_V1 = new PublicKey(
   "SSwapUtytfBdBn1b9NUGG6foMVPtcWgpRU32HToDUZr"
 );
 
-const accountSol = "HM9XRfj4PeBSNd7XS1BJVMQBpjJGygusZ8KE498wXZwH"; // owner address
+const accountSol = "RFdow49qKnuRLKu24XjJFiyhsXjaUWtzNxeA38t58At"; // owner address
 
 const payerAccount = { publicKey: new PublicKey(accountSol) };
 
