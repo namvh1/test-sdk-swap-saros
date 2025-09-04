@@ -11,12 +11,9 @@ importers:
       '@coral-xyz/anchor':
         specifier: ^0.31.1
         version: 0.31.1(typescript@5.9.2)
-      '@saros-finance/dlmm-sdk':
-        specifier: ../dlmm-saros-sdk
-        version: link:../dlmm-saros-sdk
       '@saros-finance/sdk':
-        specifier: ../saros-sdk
-        version: link:../saros-sdk
+        specifier: ./src/saros-sdk-clone
+        version: link:src/saros-sdk-clone
       '@solana/web3.js':
         specifier: 1.98.2
         version: 1.98.2(typescript@5.9.2)
@@ -66,9 +63,6 @@ importers:
       postcss:
         specifier: ^8
         version: 8.5.6
-      sdk:
-        specifier: link:@types/saros-finance/sdk
-        version: link:@types/saros-finance/sdk
       tailwindcss:
         specifier: ^3.4.1
         version: 3.4.17

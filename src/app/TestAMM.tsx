@@ -54,20 +54,20 @@ const poolParams = {
   ],
 };
 
-const SAROS_SWAP_PROGRAM_ADDRESS_V1 = new PublicKey(
-  "SSwapUtytfBdBn1b9NUGG6foMVPtcWgpRU32HToDUZr"
-);
+// const SAROS_SWAP_PROGRAM_ADDRESS_V1 = new PublicKey(
+//   "SSwapUtytfBdBn1b9NUGG6foMVPtcWgpRU32HToDUZr"
+// );
 
 const accountSol = "HM9XRfj4PeBSNd7XS1BJVMQBpjJGygusZ8KE498wXZwH"; // owner address
 
-const payerAccount = { publicKey: new PublicKey(accountSol) };
+// const payerAccount = { publicKey: new PublicKey(accountSol) };
 
 const TestAMM = () => {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
 
-  const onChange = (e) => {
-    const { name, value } = e.target;
+  const onChange = (e: any) => {
+    const { value } = e.target;
     setOutput(value);
   };
   const getSwapExactOut = async () => {
@@ -130,7 +130,7 @@ const TestAMM = () => {
     const toTokenAccount = USDC_TOKEN.addressSPL;
     const toMint = SAROS_TOKEN.mintAddress;
     const fromMint = USDC_TOKEN.mintAddress;
-    const { amountInWithSlippage } = await getSwapExactOutSaros(
+    const res: any = await getSwapExactOutSaros(
       connection,
       fromMint,
       toMint,
@@ -138,6 +138,8 @@ const TestAMM = () => {
       SLIPPAGE,
       poolParams
     );
+
+    const amountInWithSlippage = res.amountInWithSlippage
     console.log("🚀 ~ onSwap ~ amountInWithSlippage:", amountInWithSlippage);
     const result = await swapSaros(
       connection,
