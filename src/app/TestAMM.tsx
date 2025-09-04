@@ -85,10 +85,6 @@ const TestAMM = () => {
         },
       }
     );
-    // const connection = liquidityBookServices.connection;
-
-    const fromTokenAccount = SAROS_TOKEN.addressSPL;
-    const toTokenAccount = USDC_TOKEN.addressSPL;
     // const fromMint = SAROS_TOKEN.mintAddress;
     // const toMint = USDC_TOKEN.mintAddress;
     const toMint = SAROS_TOKEN.mintAddress;
