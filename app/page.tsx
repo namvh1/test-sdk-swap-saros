@@ -1,6 +1,6 @@
 "use client";
 
-import TestAMM from "@/app/TestAMM";
+import TestAMM from "./TestAMM";
 
 export default function Home() {
   return (

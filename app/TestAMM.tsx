@@ -1,5 +1,5 @@
 "use client";
-import { getSwapExactOutSaros, swapSaros } from "../sdk/src/swap";
+import { getSwapExactOutSaros, swapSaros } from "../src/sdk/src/swap";
 import React, { useState } from "react";
 import { Connection, PublicKey } from "@solana/web3.js";
 import { get } from "lodash";
