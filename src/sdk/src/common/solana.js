@@ -11,9 +11,8 @@ import * as BufferLayout from 'buffer-layout';
 import { get } from 'lodash';
 import { TOKEN_PROGRAM_ID } from '../constants';
 import { sleep } from '../functions';
+import bs58 from 'bs58'
 
-// @ts-expect-error abc
-const bs58 = require('bs58');
 
 const txsFail = 'txsFail';
 export const messFail = [
@@ -239,9 +238,10 @@ export async function sendTransaction(
     });
     console.log({ hash });
 
-    // @ts-expect-error abc
     await awaitTransactionSignatureConfirmation(connection, hash);
-    toastNotiWait && toastNotiWait();
+    if (typeof toastNotiWait === 'function') {
+      toastNotiWait();
+    }
     return hash;
   } catch (mess) {
     console.log({ mess });
@@ -269,10 +269,11 @@ export const createAssociatedTokenAccountIfNotExist = async (
   owner,
   mintAddress,
 ) => {
-  let publicKey;
-  if (account) {
-    publicKey = new PublicKey(account);
-  }
+  console.log(account)
+  // let publicKey;
+  // if (account) {
+  //   publicKey = new PublicKey(account);
+  // }
   const mint = new PublicKey(mintAddress);
   const ata = await Token.getAssociatedTokenAddress(
     ASSOCIATED_TOKEN_PROGRAM_ID,
