@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@coral-xyz/anchor": "^0.31.1",
-    "@saros-finance/sdk": "./src/saros-sdk-clone",
     "@solana/web3.js": "1.98.2",
     "bn.js": "^5.2.2",
     "crypto-js": "^4.1.1",
