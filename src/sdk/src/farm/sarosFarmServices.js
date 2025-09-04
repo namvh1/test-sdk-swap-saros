@@ -415,6 +415,7 @@ export class SarosFarmService {
       const response = await gqlClient.request(query);
       return get(response, 'data.pairs', []);
     } catch (err) {
+      console.log(err)
       return [];
     }
   }

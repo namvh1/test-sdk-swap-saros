@@ -12,6 +12,7 @@ export const convertWeiToBalance = (strValue, iDecimal = 18) => {
     const convertValue = new bigdecimal.BigDecimal(String(strValue));
     return convertValue.divide(multiplyNum).toString();
   } catch (err) {
+    console.log(err)
     return 0;
   }
 };
@@ -22,6 +23,7 @@ export const convertBalanceToWei = (strValue, iDecimal = 18) => {
     const convertValue = new bigdecimal.BigDecimal(String(strValue));
     return multiplyNum.multiply(convertValue).toString().split('.')[0];
   } catch (err) {
+    console.log(err)
     return 0;
   }
 };

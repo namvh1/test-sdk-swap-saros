@@ -12,6 +12,7 @@ import { get } from 'lodash';
 import { TOKEN_PROGRAM_ID } from '../constants';
 import { sleep } from '../functions';
 
+// @ts-expect-error abc
 const bs58 = require('bs58');
 
 const txsFail = 'txsFail';
@@ -238,6 +239,7 @@ export async function sendTransaction(
     });
     console.log({ hash });
 
+    // @ts-expect-error abc
     await awaitTransactionSignatureConfirmation(connection, hash);
     toastNotiWait && toastNotiWait();
     return hash;
@@ -266,8 +268,6 @@ export const createAssociatedTokenAccountIfNotExist = async (
   account,
   owner,
   mintAddress,
-  transaction,
-  atas = []
 ) => {
   let publicKey;
   if (account) {

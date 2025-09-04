@@ -2,6 +2,7 @@
 import { getSwapExactOutSaros, swapSaros } from "../sdk/src/swap";
 import React, { useState } from "react";
 import { Connection, PublicKey } from "@solana/web3.js";
+import { get } from "lodash";
 
 // const liquidityBookServices = new LiquidityBookServices({
 //   mode: MODE.MAINNET,
@@ -66,7 +67,9 @@ const TestAMM = () => {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
 
-  const onChange = (e: any) => {
+  const onChange = (e: {
+    target: { name: string; value: string };
+  }) => {
     const { value } = e.target;
     setOutput(value);
   };
@@ -130,7 +133,7 @@ const TestAMM = () => {
     const toTokenAccount = USDC_TOKEN.addressSPL;
     const toMint = SAROS_TOKEN.mintAddress;
     const fromMint = USDC_TOKEN.mintAddress;
-    const res: any = await getSwapExactOutSaros(
+    const res = await getSwapExactOutSaros(
       connection,
       fromMint,
       toMint,
@@ -139,7 +142,7 @@ const TestAMM = () => {
       poolParams
     );
 
-    const amountInWithSlippage = res.amountInWithSlippage
+    const amountInWithSlippage = get(res, "amountInWithSlippage", '').toString();
     console.log("🚀 ~ onSwap ~ amountInWithSlippage:", amountInWithSlippage);
     const result = await swapSaros(
       connection,
